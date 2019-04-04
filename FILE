@@ -13,7 +13,6 @@ int main(void)
  	    printf("file open\n");          //ファイルオープンと表示
  }
     while(a = fgetc(fp) != EOF) {       //ファイルを抜けるまで処理を繰り返す
-    	a = fgetc(fp);                  //ファイルを一文字ずつaに格納する
 	    putchar(a);                     //一文字ずつ表示
 	    array[b] = a;                   //配列ｂにaの値（ファイルの中身）一文字を格納する
 	    b++;                            //配列ｂに+1を入れる
