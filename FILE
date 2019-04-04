@@ -20,3 +20,20 @@ int main(void)
 	    fclose(fp);                     //ファイル終了
 	return 0;
 }
+読み込んだ後にその結果を昇順・降順に並び替えたいです。
+
+for(j = 0;j < 9;j++){
+	    printf("%d",j);
+	    for(n = 0;n < 9;n++){
+	    	printf("%d",n);
+	    }
+	}
+	       if(a[j] < a[n]){
+	            b = a[j];
+	            a[j] = a[n];
+	            a[n] = b;
+	        }
+	        printf("%d",a[n]);
+	    
+	    return 0;
+}
