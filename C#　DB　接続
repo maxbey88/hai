@@ -1,0 +1,37 @@
+using System;
+// MySQLを使うため
+using MySql.Data.MySqlClient;
+
+namespace MySQL接続テスト
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // MySQLへの接続情報
+            string server = "localhost";        // MySQLサーバホスト名
+            string user = "root";           // MySQLユーザ名
+            string pass = "";           // MySQLパスワード
+            string database = "employees";      // 接続するデータベース名
+            string tableName = "employees";
+            string connectionString = string.Format("Server={0};Database={1};Uid={2};Pwd={3}", server, database, user, pass);
+            // MySQLへの接続
+            try
+            {
+                MySqlConnection connection = new MySqlConnection(connectionString);
+                connection.Open();
+                Console.WriteLine("MySQLに接続しました！");
+
+                //SQL実行
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM " + tableName, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                // 接続の解除
+                connection.Close();
+            }
+            catch (MySqlException me)
+            {
+                Console.WriteLine("ERROR: " + me.Message);
+            }
+        }
+    }
+}
